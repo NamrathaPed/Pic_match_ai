@@ -5,6 +5,7 @@ from PIL import Image
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 model.eval()
+print(f"Model loaded successfully on {device}")
 
 def get_image_embedding(image_path):
     image = Image.open(image_path).convert("RGB")
